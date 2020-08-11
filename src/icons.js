@@ -38,7 +38,7 @@ module.exports = function () {
         cssDest:        path.join(outputDirectory, '_' + fontName + '.scss'),
         html:           false,
         cssTemplate:    path.resolve(__dirname, '../config/icons-css.hbs'),
-        cssFontsUrl:   '../fonts/' + fontName + '/',
+        cssFontsUrl:   'fonts/' + fontName + '/',
         fontName:       fontName,
         templateOptions: {
             classPrefix:    fontName + '-',
