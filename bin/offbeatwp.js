@@ -8,7 +8,7 @@ const task = process.argv.slice(2)[0];
 
 const tasks = {
     dev() {
-        this.exec(`yarn encore server --color`);
+        this.exec(`yarn encore dev-server --port 3001 --color`);
     },
     production() {
         this.exec(`yarn encore production --color`);
