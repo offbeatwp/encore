@@ -30,7 +30,7 @@ module.exports = function () {
     ensureDirectoryExistence(outputDirectory);
 
     const files = getPaths([path.resolve(baseDirectory, 'assets/icons/*.svg')]);
-    const fontName = 'icons';
+    const fontName = 'oif';
     
     webfontsGenerator({
         files:          files,
