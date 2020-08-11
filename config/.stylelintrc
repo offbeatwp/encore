@@ -1,0 +1,68 @@
+{
+  "plugins": [
+    "stylelint-scss",
+    "stylelint-order",
+    "stylelint-config-rational-order/plugin",
+    "stylelint-selector-bem-pattern"
+  ],
+  "rules": {
+    "number-leading-zero": "never",
+    "selector-pseudo-element-colon-notation": "single",
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": [
+          "after-single-line-comment"
+        ]
+      }
+    ],
+    "declaration-bang-space-after": "never",
+    "declaration-bang-space-before": "always",
+    "declaration-colon-space-after": "always",
+    "declaration-colon-space-before": "never",
+    "declaration-block-semicolon-space-before": "never",
+    "declaration-block-trailing-semicolon": "always",
+    "block-closing-brace-empty-line-before": "never",
+    "block-opening-brace-newline-after": "always",
+    "block-closing-brace-newline-before": "always",
+    "block-opening-brace-space-before": "always",
+    "value-list-comma-space-after": "always",
+    "value-list-comma-space-before": "never",
+    "selector-list-comma-newline-after": "always",
+    "function-comma-space-after": "always",
+    "function-comma-space-before": "never",
+    "no-eol-whitespace": true,
+    "no-missing-end-of-source-newline": true,
+    "indentation": [
+      4,
+      {
+        "ignore": [
+          "value"
+        ]
+      }
+    ],
+    "unit-blacklist": [
+    ],
+    "order/properties-order": [],
+    "plugin/rational-order": [
+      true, 
+      {
+        "empty-line-between-groups": true
+      }
+    ],
+    "plugin/selector-bem-pattern": {
+      "componentName": "[A-Z]+",
+      "componentSelectors": {
+        "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+        "combined": "^\\.combined-{componentName}-[a-z]+$"
+      },
+      "utilitySelectors": "^\\.util-[a-z]+$"
+    }    
+  },
+  "ignoreFiles": [
+    "../../../assets/sass/vendor/**/*"
+  ],
+  "extends": [
+    "stylelint-config-rational-order"
+  ]
+}
