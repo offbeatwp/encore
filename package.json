@@ -9,7 +9,7 @@
     "offbeatwp": "bin/offbeatwp.js"
   },
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@symfony/webpack-encore": "^0.30.2",
     "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",
@@ -17,7 +17,10 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.5",
+    "glob": "^7.1.6",
+    "icon-font-generator": "^2.1.10",
     "node-sass": "^4.14.1",
+    "path": "^0.12.7",
     "sass-loader": "^9.0.3",
     "stylelint": "^13.6.1",
     "stylelint-config-rational-order": "^0.1.2",
@@ -26,10 +29,5 @@
     "stylelint-selector-bem-pattern": "^2.1.0",
     "stylelint-webpack-plugin": "^2.1.0",
     "webpack-notifier": "^1.8.0"
-  },
-  "dependencies": {
-    "glob": "^7.1.6",
-    "icon-font-generator": "^2.1.10",
-    "path": "^0.12.7"
   }
 }
