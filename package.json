@@ -5,6 +5,9 @@
   "main": "index.js",
   "repository": "git@github.com:offbeatwp/encore.git",
   "author": "Chris Schrijver <chris@raow.nl>",
+  "bin": {
+    "offbeatwp": "bin/offbeatwp.js"
+  },
   "license": "MIT",
   "devDependencies": {
     "@symfony/webpack-encore": "^0.30.2",
