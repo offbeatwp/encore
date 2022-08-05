@@ -6,6 +6,7 @@
     "stylelint-selector-bem-pattern"
   ],
   "rules": {
+    "max-line-length": 1024,
     "number-leading-zero": "never",
     "selector-pseudo-element-colon-notation": "single",
     "rule-empty-line-before": [
