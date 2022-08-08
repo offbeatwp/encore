@@ -42,8 +42,6 @@
         ]
       }
     ],
-    "unit-blacklist": [
-    ],
     "order/properties-order": [],
     "plugin/rational-order": [
       true, 
