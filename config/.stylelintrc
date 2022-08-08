@@ -1,9 +1,7 @@
 {
   "plugins": [
     "stylelint-scss",
-    "stylelint-order",
-    "stylelint-config-rational-order/plugin",
-    "stylelint-selector-bem-pattern"
+    "stylelint-order"
   ],
   "rules": {
     "max-line-length": 1024,
@@ -42,13 +40,6 @@
         ]
       }
     ],
-    "order/properties-order": [],
-    "plugin/rational-order": [
-      true, 
-      {
-        "empty-line-between-groups": true
-      }
-    ],
     "plugin/selector-bem-pattern": {
       "componentName": "[A-Z]+",
       "componentSelectors": {
@@ -62,6 +53,6 @@
     "../../../assets/sass/vendor/**/*"
   ],
   "extends": [
-    "stylelint-config-rational-order"
+    "stylelint-config-clean-order"
   ]
 }
