@@ -15,6 +15,8 @@
     "glob": "^8.0.3",
     "icon-font-generator": "^2.1.11",
     "path": "^0.12.7",
+    "sass": "^1.54.3",
+    "sass-loader": "^13.0.0",
     "stylelint": "^14.9.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^5.0.0",
