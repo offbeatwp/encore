@@ -24,15 +24,14 @@ module.exports = function () {
     const inputDirectory = path.resolve(baseDirectory, 'assets/icons/');
 
     fantasticon.generateFonts({
-        name: 'icons',
+        name: 'oif',
         inputDir: inputDirectory, // (required)
         outputDir: outputDirectory, // (required)
         fontTypes: [fantasticon.FontAssetType.EOT, fantasticon.FontAssetType.WOFF2, fantasticon.FontAssetType.WOFF],
         assetTypes: [
             fantasticon.OtherAssetType.CSS,
+            fantasticon.OtherAssetType.SCSS,
             fantasticon.OtherAssetType.HTML,
-            fantasticon.OtherAssetType.JSON,
-            fantasticon.OtherAssetType.TS
         ],
         formatOptions: { json: { indent: 4 } },
         templates: {},
@@ -41,8 +40,8 @@ module.exports = function () {
         fontHeight: 300,
         round: undefined, // --
         descent: undefined, // Will use `svgicons2svgfont` defaults
-        normalize: undefined, // --
-        selector: null,
+        normalize: true, // --
+        selector: '.oif',
         tag: 'i',
         prefix: 'oif',
         // fontsUrl: null
