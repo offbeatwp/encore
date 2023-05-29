@@ -50,5 +50,24 @@ module.exports = function () {
             console.log('Done!');
         }
     });
+
+    webfontsGenerator({
+        files:          files,
+        dest:           outputDirectory,
+        cssDest:        path.join(outputDirectory, '_' + fontName + '_mixins.scss'),
+        html:           false,
+        cssTemplate:    path.resolve(__dirname, '../config/icons-css-mixins.hbs'),
+        cssFontsUrl:   '',
+        fontName:       fontName,
+        templateOptions: {
+            classPrefix:    fontName + '-',
+        }
+    }, function(error) {
+        if (error) {
+            console.error('Fail (mixins!', error);
+        } else {
+            console.log('Done (mixins)!');
+        }
+    });
     
 };
