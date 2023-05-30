@@ -59,14 +59,35 @@ module.exports = function () {
         cssTemplate:    path.resolve(__dirname, '../config/icons-css-mixins.hbs'),
         cssFontsUrl:   '',
         fontName:       fontName,
+        writeFiles:     false,
         templateOptions: {
             classPrefix:    fontName + '-',
         }
-    }, function(error) {
+    }, function(error, results) {
         if (error) {
             console.error('Fail (mixins!', error);
         } else {
+            // Save mixins scss file
+            const css = results.generateCss();
+
+            fs.writeFileSync(path.join(outputDirectory, '_' + fontName + '_mixins.scss'), css);
             console.log('Done (mixins)!');
+
+            // Generate icons json and save
+            let matches = [...css.matchAll(/@mixin oif-([^ ]+) {.+?content: "([^"]+)"/gms)];
+            const json = {};
+
+            for (const match of matches) {
+                json[match[1]] = {
+                    id: match[1], 
+                    char: `${match[2]}`
+                };
+            }
+
+            fs.writeFileSync(path.join(outputDirectory, fontName + '.json'), JSON.stringify(json, null, "\t"));
+
+            console.log('Done (json)!');
+
         }
     });
     
