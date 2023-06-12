@@ -1,7 +1,15 @@
-var fantasticon = require('fantasticon');
+const webfontsGenerator = require('webfonts-generator');
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
+
+function getPaths(globs) {
+    let out = [];
+
+    globs.forEach(str => out = out.concat(glob.sync(str)));
+
+    return out;
+}
 
 function ensureDirectoryExistence(dirname) {
     if (fs.existsSync(dirname)) {
@@ -21,30 +29,66 @@ module.exports = function () {
     const outputDirectory = path.resolve(baseDirectory, 'assets/fonts/icons');
     ensureDirectoryExistence(outputDirectory);
 
-    const inputDirectory = path.resolve(baseDirectory, 'assets/icons/');
+    const files = getPaths([path.resolve(baseDirectory, 'assets/icons/*.svg')]);
+    const fontName = 'oif';
+    
+    webfontsGenerator({
+        files:          files,
+        dest:           outputDirectory,
+        cssDest:        path.join(outputDirectory, '_' + fontName + '.scss'),
+        html:           false,
+        cssTemplate:    path.resolve(__dirname, '../config/icons-css.hbs'),
+        cssFontsUrl:   '',
+        fontName:       fontName,
+        templateOptions: {
+            classPrefix:    fontName + '-',
+        }
+    }, function(error) {
+        if (error) {
+            console.error('Fail!', error);
+        } else {
+            console.log('Done!');
+        }
+    });
 
-    fantasticon.generateFonts({
-        name: 'oif',
-        inputDir: inputDirectory, // (required)
-        outputDir: outputDirectory, // (required)
-        fontTypes: [fantasticon.FontAssetType.EOT, fantasticon.FontAssetType.WOFF2, fantasticon.FontAssetType.WOFF],
-        assetTypes: [
-            fantasticon.OtherAssetType.CSS,
-            fantasticon.OtherAssetType.SCSS,
-            fantasticon.OtherAssetType.HTML,
-        ],
-        formatOptions: { json: { indent: 4 } },
-        templates: {},
-        pathOptions: {},
-        codepoints: {},
-        fontHeight: 300,
-        round: undefined, // --
-        descent: undefined, // Will use `svgicons2svgfont` defaults
-        normalize: true, // --
-        selector: '.oif',
-        tag: 'i',
-        prefix: 'oif',
-        // fontsUrl: null
-      }).then(results => console.log(results));
+    webfontsGenerator({
+        files:          files,
+        dest:           outputDirectory,
+        cssDest:        path.join(outputDirectory, '_' + fontName + '_mixins.scss'),
+        html:           false,
+        cssTemplate:    path.resolve(__dirname, '../config/icons-css-mixins.hbs'),
+        cssFontsUrl:   '',
+        fontName:       fontName,
+        writeFiles:     false,
+        templateOptions: {
+            classPrefix:    fontName + '-',
+        }
+    }, function(error, results) {
+        if (error) {
+            console.error('Fail (mixins!', error);
+        } else {
+            // Save mixins scss file
+            const css = results.generateCss();
+
+            fs.writeFileSync(path.join(outputDirectory, '_' + fontName + '_mixins.scss'), css);
+            console.log('Done (mixins)!');
+
+            // Generate icons json and save
+            let matches = [...css.matchAll(/@mixin oif-([^ ]+) {.+?content: "([^"]+)"/gms)];
+            const json = {};
+
+            for (const match of matches) {
+                json[match[1]] = {
+                    id: match[1], 
+                    char: `${match[2]}`
+                };
+            }
+
+            fs.writeFileSync(path.join(outputDirectory, fontName + '.json'), JSON.stringify(json, null, "\t"));
+
+            console.log('Done (json)!');
+
+        }
+    });
     
 };
