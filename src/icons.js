@@ -21,8 +21,11 @@ module.exports = function () {
     const outputDirectory = path.resolve(baseDirectory, 'assets/fonts/icons');
     ensureDirectoryExistence(outputDirectory);
 
-    const inputDirectory = path.resolve(baseDirectory, 'assets/icons/');
-
+    let inputDirectory = path.resolve(baseDirectory, 'assets/icons/');
+    if (fs.existsSync(`${inputDirectory}/font`)) {
+        inputDirectory = `${inputDirectory}/font`;
+    }
+    
     fantasticon.generateFonts({
         name: 'oif',
         inputDir: inputDirectory, // (required)
