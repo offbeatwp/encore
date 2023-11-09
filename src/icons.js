@@ -36,7 +36,10 @@ module.exports = function () {
             fantasticon.OtherAssetType.SCSS
         ],
         formatOptions: { json: { indent: 4 } },
-        templates: {},
+        templates: {
+            css: path.resolve(__dirname, '../config/icons.css.hbs'),
+            scss: path.resolve(__dirname, '../config/icons.scss.hbs')
+        },
         pathOptions: {},
         codepoints: {},
         fontHeight: 300,
