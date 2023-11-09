@@ -2,6 +2,7 @@ ${{ name }}-font: "{{ name }}";
 
 @font-face {
     font-family: ${{ name }}-font;
+    font-display: swap;
     src: {{{ fontSrc }}};
 }
 
@@ -16,7 +17,6 @@ ${{ name }}-font: "{{ name }}";
     font-variant: normal;
     text-transform: none;
     line-height: 1;
-    font-display: swap;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
