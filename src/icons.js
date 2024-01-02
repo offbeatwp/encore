@@ -1,5 +1,4 @@
-var fantasticon = require('fantasticon');
-const glob = require('glob');
+const fantasticon = require('fantasticon');
 const path = require('path');
 const fs = require('fs');
 
@@ -15,7 +14,7 @@ function ensureDirectoryExistence(dirname) {
     return true;
 }
 
-module.exports = function () {
+module.exports = () => {
     const baseDirectory = process.cwd();
 
     const outputDirectory = path.resolve(baseDirectory, 'assets/fonts/icons');
