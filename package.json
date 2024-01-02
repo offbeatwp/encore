@@ -1,6 +1,6 @@
 {
   "name": "encore",
-  "version": "1.0.0",
+  "version": "4.2.0",
   "description": "Encore builder for offbeat",
   "main": "index.js",
   "repository": "git@github.com:offbeatwp/encore.git",
