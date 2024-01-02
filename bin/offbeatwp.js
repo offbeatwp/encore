@@ -1,9 +1,6 @@
 #!/usr/bin/env node
-var exec =      require('child_process').exec;
-
-const srcDirectory =    __dirname + '/../src';
-const webpackConfig = __dirname + '/../config/webpack.config.js';
-
+const exec = require('child_process').exec;
+const srcDirectory = __dirname + '/../src';
 const task = process.argv.slice(2)[0];
 
 const tasks = {
@@ -19,17 +16,17 @@ const tasks = {
     exec(cmd) {
         const execCommand = exec(cmd);
 
-        execCommand.stdout.on('data', function (data) {
+        execCommand.stdout.on('data', (data) => {
           console.log(data.toString().trim());
         });
 
-        execCommand.stderr.on('data', function (data) {
+        execCommand.stderr.on('data', (data) => {
           console.log(data.toString().trim());
         });
     }
 }
 
-if (typeof task !== 'undefined' && typeof tasks[task] === 'function') {
+if (typeof task === 'object' && typeof tasks[task] === 'function') {
     tasks[task]();
     return;
 }
