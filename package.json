@@ -1,6 +1,6 @@
 {
   "name": "encore",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Encore builder for offbeat",
   "main": "index.js",
   "repository": "git@github.com:offbeatwp/encore.git",
@@ -11,23 +11,12 @@
   "license": "MIT",
   "dependencies": {
     "@symfony/webpack-encore": "^0.30.2",
-    "eslint": "^7.6.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-loader": "^3.0.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.5",
     "glob": "^7.1.6",
     "icon-font-generator": "^2.1.10",
     "node-sass": "^4.14.1",
     "path": "^0.12.7",
     "sass-loader": "^8.0.0",
-    "stylelint": "^13.6.1",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-order": "^4.1.0",
-    "stylelint-scss": "^3.18.0",
-    "stylelint-selector-bem-pattern": "^2.1.0",
-    "stylelint-webpack-plugin": "^2.1.0",
+    "webpack": "^5.89.0",
     "webpack-notifier": "^1.8.0"
   }
 }
