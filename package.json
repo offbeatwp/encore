@@ -8,9 +8,13 @@
   "bin": {
     "offbeatwp": "bin/offbeatwp.js"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "license": "MIT",
   "dependencies": {
-    "@symfony/webpack-encore": "^3.1.0",
+    "@babel/core": "^7.23.7",
+    "@symfony/webpack-encore": "^4.5.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.29.1",
