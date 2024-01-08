@@ -31,5 +31,8 @@
     "stylelint-webpack-plugin": "^4.1.1",
     "webpack": "^5.89.0",
     "webpack-notifier": "^1.15.0"
+  },
+  "devDependencies": {
+    "file-loader": "^6.0.0"
   }
 }
