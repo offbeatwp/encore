@@ -9,7 +9,7 @@
     "offbeatwp": "bin/offbeatwp.js"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "license": "MIT",
   "dependencies": {
@@ -21,10 +21,10 @@
     "eslint-plugin-react": "^7.33.2",
     "glob": "^10.3.10",
     "icon-font-generator": "^2.1.11",
-    "node-sass": "^8.0.0",
+    "node-sass": "^9.0.0",
     "path": "^0.12.7",
     "sass-loader": "^13.3.3",
-    "stylelint": "^16.1.0",
+    "stylelint": "^15.11.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.0.0",
